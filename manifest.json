@@ -1,0 +1,31 @@
+{
+  "name": "NetAccess login",
+  "description": "Logs u into NetAccess",
+  "version": "1.0",
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*", "https://netaccess.iitm.ac.in/*"
+  ],
+  "browser_action": {
+      "default_title": "Login.",
+      "default_icon": "icon.png"
+  },
+  "background": {
+    "scripts": ["popup.js"],
+    "persistent": false
+  },
+   "content_scripts": [
+    {
+      "matches": ["https://netaccess.iitm.ac.in/login.php"],
+      "js": ["jquery.min.js", "script.js"]
+    },
+    {
+      "matches": ["https://netaccess.iitm.ac.in/index.php"],
+      "js": ["jquery.min.js", "script1.js"]
+    },
+    {
+      "matches": ["https://netaccess.iitm.ac.in/authorize.php"],
+      "js": ["jquery.min.js", "script2.js"]
+    }
+  ],
+  "manifest_version": 2
+}
